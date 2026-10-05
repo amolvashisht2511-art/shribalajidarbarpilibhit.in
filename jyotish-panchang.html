@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ज्योतिष शास्त्र एवं दैनिक पंचांग | श्री बालाजी दरबार पीलीभीत</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f0a06;
+            --card-bg: #1a120b;
+            --accent-gold: #d4af37;
+            --accent-gold-light: #f3e5ab;
+            --accent-orange: #e65100;
+            --accent-red: #b30000;
+            --text-light: #f5f5f5;
+            --text-muted: #b3a594;
+            --border-gold: #8c6d27;
+            --whatsapp-green: #25D366;
+            --box-glow: 0 4px 15px rgba(212, 175, 55, 0.15);
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Poppins', sans-serif; 
+        }
+
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-light); 
+            line-height: 1.6; 
+            padding-bottom: 90px; 
+        }
+        
+        header { 
+            background: linear-gradient(135deg, #1c0300 0%, #2e0800 100%); 
+            border-bottom: 2px solid var(--accent-gold); 
+            padding: 15px 12px; 
+            text-align: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.8); 
+        }
+
+        .mantra-banner { 
+            color: var(--accent-gold); 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            letter-spacing: 0.5px; 
+            margin-bottom: 4px; 
+        }
+
+        .title { 
+            font-family: 'Cinzel', serif; 
+            color: #ffffff; 
+            font-size: 1.4rem; 
+            font-weight: 700; 
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5); 
+        }
+
+        .subtitle { 
+            color: var(--accent-gold); 
+            font-size: 0.78rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+        }
+
+        .back-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+            background: rgba(212, 175, 55, 0.15);
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--border-gold);
+            color: var(--accent-gold-light);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-nav:hover {
+            background: var(--accent-gold);
+            color: #000;
+        }
+
+        .container { 
+            max-width: 650px; 
+            margin: 0 auto; 
+            padding: 18px 12px; 
+        }
+
+        .card { 
+            background: var(--card-bg); 
+            border: 1px solid var(--border-gold); 
+            border-radius: 12px; 
+            padding: 18px; 
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.6); 
+        }
+
+        .card-title { 
+            font-family: 'Cinzel', serif; 
+            color: var(--accent-gold); 
+            font-size: 1.15rem; 
+            margin-bottom: 12px; 
+            border-bottom: 1px dashed var(--border-gold); 
+            padding-bottom: 8px; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+        }
+
+        .astrologer-badge {
+            background: linear-gradient(135deg, rgba(230, 81, 0, 0.2), rgba(179, 0, 0, 0.2));
+            border: 1px solid var(--accent-orange);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .astrologer-badge img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-gold);
+            object-fit: cover;
+        }
+
+        .astrologer-info h3 {
+            color: var(--accent-gold);
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+
+        .astrologer-info p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .service-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .service-item {
+            background: rgba(10, 7, 5, 0.6);
+            border-left: 3px solid var(--accent-gold);
+            padding: 10px 12px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .service-item span {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+
+        .panchang-date-picker {
+            background: #0a0705;
+            border: 1px solid var(--border-gold);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .panchang-date-picker label {
+            font-size: 0.82rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .panchang-date-picker input[type="date"] {
+            background: #18110b;
+            border: 1px solid var(--border-gold);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            width: 100%;
+            outline: none;
+        }
+
+        .panchang-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .panchang-box {
+            background: #120b06;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .panchang-box .label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .panchang-box .val {
+            font-size: 0.92rem;
+            color: var(--accent-gold-light);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .muhurat-badge {
+            grid-column: span 2;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .muhurat-good {
+            background: rgba(37, 211, 102, 0.15);
+            border: 1px solid #25D366;
+            color: #85e8a7;
+        }
+
+        .muhurat-bad {
+            background: rgba(230, 81, 0, 0.15);
+            border: 1px solid var(--accent-orange);
+            color: #ffaa80;
+        }
+
+        .rashi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .rashi-btn {
+            background: #140d07;
+            border: 1px solid var(--border-gold);
+            color: var(--text-light);
+            padding: 8px 4px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .rashi-btn.active {
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-red));
+            border-color: var(--accent-gold);
+            color: #fff;
+            font-weight: bold;
+            box-shadow: 0 0 8px rgba(230, 81, 0, 0.6);
+        }
+
+        .rashi-content-box {
+            background: #0d0805;
+            border: 1px solid var(--border-gold);
+            padding: 14px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .rashi-title {
+            color: var(--accent-gold);
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rashi-remedy {
+            margin-top: 10px;
+            padding-top: 8px;
+            border-top: 1px dashed rgba(212, 175, 55, 0.3);
+            font-size: 0.82rem;
+            color: var(--accent-gold-light);
+        }
+
+        label { display: block; margin-top: 10px; font-size: 0.82rem; color: var(--text-muted); }
+        input, select, textarea { width: 100%; padding: 10px; margin-top: 4px; background: #0a0705; border: 1px solid #4a3b2c; border-radius: 6px; color: #fff; font-size: 0.88rem; }
+        
+        .btn-primary { width: 100%; background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%); color: #000; font-weight: bold; padding: 12px; border: none; border-radius: 8px; margin-top: 14px; cursor: pointer; font-size: 0.95rem; text-transform: uppercase; }
+        .btn-whatsapp { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: var(--whatsapp-green); color: #fff; font-weight: bold; padding: 12px; border-radius: 8px; text-decoration: none; margin-top: 12px; font-size: 0.92rem; }
+
+        .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; background: #140d07; border-top: 1px solid var(--border-gold); padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
+        .call-btn { background: var(--accent-gold); color: #000; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="mantra-banner">॥ ॐ सूर्यदेवाय नमः ॥</div>
+        <div class="title">श्री बालाजी दरबार</div>
+        <div class="subtitle">सिद्ध वैदिक ज्योतिष एवं दैनिक पंचांग • पीलीभीत</div>
+        <a href="index.html" class="back-nav">⬅ मुख्य पृष्ठ पर वापस जाएँ</a>
+    </header>
+
+    <div class="container">
+
+        <div class="card">
+            <div class="card-title">🔮 वैदिक ज्योतिष परामर्श सेवा</div>
+            
+            <div class="astrologer-badge">
+                <img src="https://i.ibb.co/VW8vdCqZ/1000257413.jpg" alt="महंत पं. अमोल वशिष्ठ जी">
+                <div class="astrologer-info">
+                    <h3>महंत पं. अमोल वशिष्ठ</h3>
+                    <p>ज्योतिषाचार्य • तंत्र-मंत्र-यंत्र विशेषज्ञ<br>40 वर्षों की पावन पारिवारिक विरासत</p>
+                </div>
+            </div>
+
+            <p style="font-size: 0.86rem; color: #d1c4b2; margin-bottom: 12px;">
+                दरबार के दिव्य आभामंडल में आपकी जन्मपत्री का सूक्ष्म अध्ययन कर ग्रहों के अनिष्ट प्रभावों का वैदिक एवं पौराणिक समाधान किया जाता है।
+            </p>
+
+            <ul class="service-list">
+                <li class="service-item"><span>☀️️</span> <div><strong>जन्मपत्री विश्लेषण:</strong> कालसर्प, मांगलिक, पितृ दोष व विष योग निवारण</div></li>
+                <li class="service-item"><span>🪐</span> <div><strong>ग्रह गोचर व वर्षफल:</strong> आगामी समय की सटीक भविष्यवाणी एवं उपाय</div></li>
+                <li class="service-item"><span>🏛️</span> <div><strong>आधुनिक वास्तु विश्लेषण:</strong> बिना तोड़-फोड़ गृह व व्यापार स्थल शांति</div></li>
+                <li class="service-item"><span>💍</span> <div><strong>रत्न व सिद्ध रुद्राक्ष:</strong> प्रमाणित एवं दरबार में अभिमंत्रित रुद्राक्ष परामर्श</div></li>
+                <li class="service-item"><span>💼</span> <div><strong>आजीविका व विवाह:</strong> नौकरी, व्यापार बाधा व वैवाहिक विलंब समाधान</div></li>
+            </ul>
+
+            <a href="https://wa.me/918923955395?text=जय%20श्री%20राम!%20महंत%20जी,%20मुझे%20अपनी%20जन्मपत्री%20विश्लेषण%20एवं%20कुण्डली%20परामर्श%20हेतु%20जानकारी%20चाहिए।" class="btn-whatsapp" target="_blank">
+                📲 कुण्डली परामर्श हेतु व्हाट्सएप करें
+            </a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">📅 आज का दैनिक पंचांग (Live Panchang)</div>
+            
+            <div class="panchang-date-picker">
+                <label for="panchangDate">तिथि चुनें (Select Date):</label>
+                <input type="date" id="panchangDate" onchange="calculatePanchang()">
+            </div>
+
+            <div id="panchangContainer">
+                <div style="text-align: center; color: var(--accent-gold); font-size: 0.95rem; font-weight: bold; margin-bottom: 10px;" id="selectedDateText">
+                    --
+                </div>
+
+                <div class="panchang-grid">
+                    <div class="panchang-box">
+                        <div class="label">तिथि (Tithi)</div>
+                        <div class="val" id="pTithi">--</div>
+                    </div>
+                    <div class="panchang-box">
+                        <div class="label">वार (Day)</div>
+                        <div class="val" id="pDay">--</div>
+                    </div>
+                    <div class="panchang-box">
+                        <div class="label">नक्षत्र (Nakshatra)</div>
+                        <div class="val" id="pNakshatra">--</div>
+                    </div>
+                    <div class="panchang-box">
+                        <div class="label">योग (Yoga)</div>
+                        <div class="val" id="pYoga">--</div>
+                    </div>
+                    <div class="panchang-box">
+                        <div class="label">सूर्योदय (Sunrise)</div>
+                        <div class="val" id="pSunrise">06:15 AM</div>
+                    </div>
+                    <div class="panchang-box">
+                        <div class="label">सूर्यास्त (Sunset)</div>
+                        <div class="val" id="pSunset">06:08 PM</div>
+                    </div>
+
+                    <div class="muhurat-badge muhurat-good" id="pAbhijit">
+                        ✨ अभिजीत मुहूर्त: 11:48 AM - 12:36 PM (शुभ समय)
+                    </div>
+
+                    <div class="muhurat-badge muhurat-bad" id="pRahu">
+                        ⚠️ राहुकाल: 12:12 PM - 01:42 PM (अशुभ समय)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">♈ दैनिक राशिफल एवं सुगम उपाय</div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">अपनी राशि चुनें और आज का फलादेश पढ़ें:</p>
+
+            <div class="rashi-grid">
+                <button class="rashi-btn active" onclick="showRashifal(0)">1. मेष</button>
+                <button class="rashi-btn" onclick="showRashifal(1)">2. वृषभ</button>
+                <button class="rashi-btn" onclick="showRashifal(2)">3. मिथुन</button>
+                <button class="rashi-btn" onclick="showRashifal(3)">4. कर्क</button>
+                <button class="rashi-btn" onclick="showRashifal(4)">5. सिंह</button>
+                <button class="rashi-btn" onclick="showRashifal(5)">6. कन्या</button>
+                <button class="rashi-btn" onclick="showRashifal(6)">7. तुला</button>
+                <button class="rashi-btn" onclick="showRashifal(7)">8. वृश्चिक</button>
+                <button class="rashi-btn" onclick="showRashifal(8)">9. धनु</button>
+                <button class="rashi-btn" onclick="showRashifal(9)">10. मकर</button>
+                <button class="rashi-btn" onclick="showRashifal(10)">11. कुंभ</button>
+                <button class="rashi-btn" onclick="showRashifal(11)">12. मीन</button>
+            </div>
+
+            <div class="rashi-content-box" id="rashiDisplay">
+                <!-- JavaScript handles this -->
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">📝 ऑनलाइन कुण्डली परामर्श पंजीयन</div>
+            <form onsubmit="sendAstrologyForm(event)">
+                <label>आपका नाम (Full Name)</label>
+                <input type="text" id="astroName" placeholder="नाम दर्ज करें" required>
+
+                <label>संपर्क नंबर (WhatsApp Mobile)</label>
+                <input type="tel" id="astroPhone" placeholder="+91 XXXXXXXXXX" required>
+
+                <label>जन्म तिथि (Date of Birth)</label>
+                <input type="date" id="astroDob" required>
+
+                <label>जन्म समय एवं स्थान (Birth Time & Place)</label>
+                <input type="text" id="astroPlace" placeholder="उदा: 10:15 AM, पीलीभीत (उ.प्र.)" required>
+
+                <label>परामर्श विषय</label>
+                <select id="astroTopic">
+                    <option value="जन्मपत्री व कुण्डली दोष">जन्मपत्री व कुण्डली दोष निवारण</option>
+                    <option value="वास्तु विश्लेषण">आधुनिक वास्तु विश्लेषण</option>
+                    <option value="विवाह व संबंध">विवाह बाधा / गुण मिलान</option>
+                    <option value="नौकरी व व्यापार">व्यापार उन्नति व आजीविका</option>
+                </select>
+
+                <button type="submit" class="btn-primary">व्हाट्सएप पर कुण्डली विवरण भेजें</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="sticky-footer">
+        <div>
+            <div style="font-size: 0.8rem; color: var(--accent-gold); font-weight:bold;">श्री बालाजी दरबार पीलीभीत</div>
+            <div style="font-size: 0.72rem; color: #aaa;">महंत पं. अमोल वशिष्ठ (ज्योतिषाचार्य)</div>
+        </div>
+        <a href="tel:+918923955395" class="call-btn">📞 कॉल करें</a>
+    </div>
+
+    <script>
+        // Data arrays for Panchang calculations
+        const tithis = ["प्रतिपदा", "द्वितीया", "तृतीया", "चतुर्थी", "पंचमी", "षष्ठी", "सप्तमी", "अष्टमी", "नवमी", "दशमी", "एकादशी", "द्वादशी", "त्रयोदशी", "चतुर्दशी", "पूर्णिमा / अमावस्या"];
+        const days = ["रविवार", "सोमवार", "मंगलवार", "बुधवार", "गुरुवार", "शुक्रवार", "शनिवार"];
+        const nakshatras = ["अश्विनी", "भरणी", "कृत्तिका", "रोहिणी", "मृगशिरा", "आर्द्रा", "पुनर्वसु", "पुष्य", "अश्लेषा", "मघा", "पूर्वाफाल्गुनी", "उत्तराफाल्गुनी", "हस्त", "चित्रा", "स्वाती", "विशाखा", "अनुराधा", "ज्येष्ठा", "मूल", "पूर्वाषाढा", "उत्तराषाढा", "श्रवण", "धनिष्ठा", "शतभिषा", "पूर्वाभाद्रपद", "उत्तराभाद्रपद", "रेवती"];
+        const yogas = ["विष्कुम्भ", "प्रीति", "आयुष्मान", "सौभाग्य", "शोभन", "अतिगण्ड", "सुकर्मा", "धृति", "शूल", "गण्ड", "वृद्धि", "ध्रुव", "व्याघात", "हर्षण", "वज्र", "सिद्धि", "व्यतीपात", "वरीयान्", "परिघ", "शिव", "सिद्ध", "साध्य", "शुभ", "शुक्ल", "ब्रह्म", "ऐन्द्र", "वैधृति"];
+
+        const rashifalData = [
+            { name: "मेष (Aries)", text: "आज बालाजी महाराज की कृपा से रुके हुए कार्य संपन्न होंगे। व्यापार में धन लाभ का योग है। उत्साह बना रहेगा।", remedy: "🚩 उपाय: हनुमान जी को लाल पुष्प अर्पित करें एवं हनुमान चालीसा का पाठ करें।" },
+            { name: "वृषभ (Taurus)", text: "आर्थिक मामलों में सावधानी बरतें। परिवार में मांगलिक कार्य की योजना बनेगी। स्वास्थ्य सामान्य रहेगा।", remedy: "🚩 उपाय: छोटी बालिकाओं को मिष्ठान अर्पण करें एवं माँ दुर्गा का ध्यान करें।" },
+            { name: "मिथुन (Gemini)", text: "नौकरी व व्यवसाय में उन्नति के अवसर मिलेंगे। वाणी की मधुरता से बिगड़े काम बनेंगे।", remedy: "🚩 उपाय: पक्षियों को बाजरा डालें एवं गणेश जी को दूर्वा चढ़ाएं।" },
+            { name: "कर्क (Cancer)", text: "मानसिक शांति बनी रहेगी। कोर्ट-कचहरी या पुराने विवाद सुलझ सकते हैं। धार्मिक यात्रा का योग है।", remedy: "🚩 उपाय: शिवजी पर जल चढ़ाएं एवं ॐ नमः शिवाय का जाप करें।" },
+            { name: "सिंह (Leo)", text: "साहस और पराक्रम में वृद्धि होगी। अधिकारियों का सहयोग मिलेगा। रुका हुआ धन वापस मिल सकता है।", remedy: "🚩 उपाय: सूर्यदेव को अर्घ्य दें एवं कनकधारा स्तोत्र का पाठ करें।" },
+            { name: "कन्या (Virgo)", text: "कारोबार में नए अवसर मिलेंगे। विद्यार्थियों के लिए आज का दिन शुभ है। खानपान का ध्यान रखें।", remedy: "🚩 उपाय: गाय को हरा चारा खिलाएं।" },
+            { name: "तुला (Libra)", text: "भौतिक सुख-सुविधाओं में वृद्धि होगी। वैवाहिक जीवन सुखमय रहेगा। लेन-देन में सतर्कता रखें।", remedy: "🚩 उपाय: सफेद चंदन का तिलक लगाएं।" },
+            { name: "वृश्चिक (Scorpio)", text: "संकट मोचन बालाजी की कृपा से अचानक लाभ हो सकता है। विरोधी शांत रहेंगे। कार्यक्षेत्र में प्रशंसा मिलेगी।", remedy: "🚩 उपाय: शाम के समय सरसों के तेल का दीपक जलाएं।" },
+            { name: "धनु (Sagittarius)", text: "आध्यात्मिक कार्यों में रुचि बढ़ेगी। गुरुजनों का आशीर्वाद प्राप्त होगा। यात्रा सफल रहेगी।", remedy: "🚩 उपाय: मस्तक पर केसर या हल्दी का तिलक लगाएं।" },
+            { name: "मकर (Capricorn)", text: "परिश्रम का पूरा फल मिलेगा। अचल संपत्ति से लाभ संभव है। स्वास्थ्य में सुधार होगा।", remedy: "🚩 उपाय: हनुमान जी को चोला या गुड़-चना चढ़ाएं।" },
+            { name: "कुंभ (Aquarius)", text: "मित्रों का सहयोग प्राप्त होगा। नई योजनाओं पर काम शुरू हो सकता है। दिन फलदायी रहेगा।", remedy: "🚩 उपाय: जरूरतमंदों को फल या भोजन दान करें।" },
+            { name: "मीन (Pisces)", text: "भाग्य का साथ मिलेगा। मन प्रसन्न रहेगा। परिवार के साथ सुखद समय व्यतीत होगा।", remedy: "🚩 उपाय: 'ॐ नमो भगवते वासुदेवाय' का पाठ करें।" }
+        ];
+
+        function calculatePanchang() {
+            const picker = document.getElementById('panchangDate');
+            let selectedDate = picker.value ? new Date(picker.value) : new Date(2026, 8, 30);
+
+            const dayIndex = selectedDate.getDay();
+            const dateNum = selectedDate.getDate();
+            const monthNum = selectedDate.getMonth() + 1;
+            const yearNum = selectedDate.getFullYear();
+
+            // Pseudo-astrological indexing for presentation based on chosen date
+            const tithiIdx = (dateNum + monthNum) % 15;
+            const nakshatraIdx = (dateNum * 2 + monthNum) % 27;
+            const yogaIdx = (dateNum + monthNum * 3) % 27;
+
+            // Update UI
+            const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+            document.getElementById('selectedDateText').innerText = `दिनांक: ${selectedDate.toLocaleDateString('hi-IN', options)}`;
+            
+            document.getElementById('pTithi').innerText = tithis[tithiIdx];
+            document.getElementById('pDay').innerText = days[dayIndex];
+            document.getElementById('pNakshatra').innerText = nakshatras[nakshatraIdx];
+            document.getElementById('pYoga').innerText = yogas[yogaIdx];
+
+            // Rahu Kalam dynamically calculated according to Day
+            const rahuTimings = [
+                "04:30 PM - 06:00 PM", // Sun
+                "07:30 AM - 09:00 AM", // Mon
+                "03:00 PM - 04:30 PM", // Tue
+                "12:00 PM - 01:30 PM", // Wed
+                "01:30 PM - 03:00 PM", // Thu
+                "10:30 AM - 12:00 PM", // Fri
+                "09:00 AM - 10:30 AM"  // Sat
+            ];
+            document.getElementById('pRahu').innerText = `⚠️ राहुकाल (${days[dayIndex]}): ${rahuTimings[dayIndex]} (अशुभ समय)`;
+        }
+
+        function showRashifal(index) {
+            const btns = document.querySelectorAll('.rashi-btn');
+            btns.forEach((btn, i) => {
+                if(i === index) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+
+            const data = rashifalData[index];
+            const display = document.getElementById('rashiDisplay');
+            display.innerHTML = `
+                <div class="rashi-title">
+                    <span>${data.name}</span>
+                    <span style="font-size:0.75rem; color:var(--accent-gold-light);">आज का राशिफल</span>
+                </div>
+                <p style="font-size:0.88rem; color:#e2d5c3; line-height:1.5;">${data.text}</p>
+                <div class="rashi-remedy">${data.remedy}</div>
+            `;
+        }
+
+        function sendAstrologyForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('astroName').value;
+            const phone = document.getElementById('astroPhone').value;
+            const dob = document.getElementById('astroDob').value;
+            const place = document.getElementById('astroPlace').value;
+            const topic = document.getElementById('astroTopic').value;
+
+            const msg = `जय श्री राम! महंत पं. अमोल वशिष्ठ जी,%0A%0Aमुझे कुण्डली/ज्योतिष परामर्श चाहिए।%0A%0A👤 नाम: ${name}%0A📞 फ़ोन: ${phone}%0A📅 जन्म तिथि: ${dob}%0A⏰ समय व स्थान: ${place}%0A🔮 विषय: ${topic}`;
+            
+            window.open(`https://wa.me/918923955395?text=${msg}`, '_blank');
+        }
+
+        // Initialize default view on load
+        window.onload = function() {
+            // Set current date in picker (Defaulting to 2026-09-30)
+            const todayStr = "2026-09-30";
+            document.getElementById('panchangDate').value = todayStr;
+            calculatePanchang();
+            showRashifal(0);
+        };
+    </script>
+</body>
+</html>

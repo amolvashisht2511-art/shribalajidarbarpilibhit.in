@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>श्री बालाजी दरबार पीलीभीत | पीठधीश: पंडित अमोल वशिष्ठ</title>
+    <style>
+        :root {
+            --primary-saffron: #FF4500;
+            --deep-red: #800000;
+            --royal-maroon: #4A0000;
+            --gold: #FFD700;
+            --accent-gold: #D4AF37;
+            --cream-bg: #FFF8E7;
+            --card-shadow: 0 10px 30px rgba(128, 0, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Devanagari Sangam MN', sans-serif;
+            background: linear-gradient(180deg, #4A0000 0%, #800000 300px, #FFF8E7 300px, #FFF3E0 100%);
+            background-attachment: fixed;
+            color: #2C1810;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--royal-maroon) 0%, var(--deep-red) 50%, var(--primary-saffron) 100%);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem 2rem;
+            border-bottom: 6px solid var(--gold);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: var(--gold);
+            text-shadow: 2px 3px 8px rgba(0,0,0,0.7);
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            font-size: 1.15rem;
+            margin-top: 0.6rem;
+            color: #FFF;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+            font-weight: 600;
+        }
+
+        nav {
+            background: #330000;
+            padding: 0.8rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: #FFF8E7;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+            background: rgba(255, 215, 0, 0.25);
+        }
+
+        .btn-blog-highlight {
+            background: var(--primary-saffron) !important;
+            color: #FFF !important;
+            border: 1px solid var(--gold);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 1.5rem 1rem;
+        }
+
+        .card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+            border: 2px solid var(--accent-gold);
+            border-top: 6px solid var(--primary-saffron);
+        }
+
+        h2 {
+            color: var(--deep-red);
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            font-size: 1.6rem;
+        }
+
+        h3 {
+            color: var(--royal-maroon);
+            margin-top: 1.5rem;
+            background: linear-gradient(90deg, #FFE0B2, transparent);
+            padding: 8px 12px;
+            border-left: 5px solid var(--primary-saffron);
+            border-radius: 0 8px 8px 0;
+            font-size: 1.2rem;
+        }
+
+        .notice-box {
+            background: linear-gradient(135deg, #FFF3CD 0%, #FFE0B2 100%);
+            border: 2px solid var(--gold);
+            color: #8B0000;
+            padding: 1.2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.15rem;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .blog-banner-card {
+            background: linear-gradient(135deg, #FFF8E7 0%, #FFE0B2 100%);
+            border: 2px solid var(--accent-gold);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .blog-banner-card h3 {
+            margin-top: 0;
+            background: none;
+            border: none;
+            color: var(--deep-red);
+            font-size: 1.3rem;
+            padding: 0;
+        }
+
+        .btn-read-blog {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--deep-red), var(--primary-saffron));
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.05rem;
+            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(255, 69, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-read-blog:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(255, 69, 0, 0.5);
+        }
+
+        .profile-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .profile-card {
+            text-align: center;
+            max-width: 320px;
+            background: #FFFDF8;
+            padding: 15px;
+            border-radius: 14px;
+            border: 2px solid var(--accent-gold);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+        }
+
+        .profile-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid var(--primary-saffron);
+        }
+
+        .profile-card h3 {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 12px 0 4px 0;
+            color: var(--deep-red);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #FFE0B2;
+            padding: 12px 10px;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(135deg, var(--royal-maroon), var(--deep-red));
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) { background-color: #FFF8E7; }
+        tr:nth-child(odd) { background-color: #FFFFFF; }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 1rem;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid var(--accent-gold);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 0.4rem; color: var(--deep-red); }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1.5px solid var(--accent-gold);
+            border-radius: 8px;
+            box-sizing: border-box;
+            background: #FFFDF8;
+            font-size: 1rem;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .qr-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: #FFF8E7;
+            border: 2px dashed var(--accent-gold);
+            border-radius: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .map-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 3px solid var(--accent-gold);
+            margin-top: 1rem;
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 2px 4px 12px rgba(0,0,0,0.4);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--royal-maroon) 0%, #200000 100%);
+            color: var(--gold);
+            text-align: center;
+            padding: 1.8rem;
+            margin-top: 3rem;
+            border-top: 5px solid var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                background: #330000;
+                padding: 10px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+            }
+            .nav-links.active { display: flex; }
+            .nav-links li { text-align: center; padding: 8px 0; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🚩 श्री बालाजी दरबार, पीलीभीत 🚩</h1>
+    <div class="tagline">40 वर्षों की पावन परंपरा व वैदिक समाधान | पीठधीश: पंडित अमोल वशिष्ठ</div>
+</header>
+
+<nav>
+    <div class="nav-brand">श्री बालाजी दरबार</div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#about" onclick="toggleMenu()">परिचय</a></li>
+        <li><a href="https://balajidarbarpilibhit.blogspot.com/2026/10/blog-post.html?m=1" target="_blank" class="btn-blog-highlight">📖 धार्मिक लेख</a></li>
+        <li><a href="#astrology" onclick="toggleMenu()">वैदिक ज्योतिष</a></li>
+        <li><a href="#gallery" onclick="toggleMenu()">दरबार दर्शन</a></li>
+        <li><a href="#tariff" onclick="toggleMenu()">दक्षिणा सूची</a></li>
+        <li><a href="#rules" onclick="toggleMenu()">दरबार नियम</a></li>
+        <li><a href="#booking" onclick="toggleMenu()">अपॉइंटमेंट</a></li>
+        <li><a href="#location" onclick="toggleMenu()">स्थान व मैप</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+
+    <div class="notice-box">
+        🚩 निःशुल्क राम कथा (नेशनल / इंटरनेशनल)<br>
+        <span style="font-size:0.95rem; font-weight:normal; color:#555;">0 Fee Policy for Ram Katha | केवल आवास, प्रवास व व्यवस्था यजमान द्वारा।</span>
+    </div>
+
+    <!-- ब्लॉग/लेख कार्ड -->
+    <div class="blog-banner-card">
+        <h3>📖 श्री बालाजी दरबार के पावन लेख एवं नियम पढ़ें</h3>
+        <p>बालाजी महाराज की अर्जी लगाने की सही विधि, 7 मंगलवार की हाजिरी एवं सात्विक नियमों की संपूर्ण जानकारी हेतु यहाँ क्लिक करें:</p>
+        <a href="https://balajidarbarpilibhit.blogspot.com/2026/10/blog-post.html?m=1" target="_blank" class="btn-read-blog">🚩 धार्मिक लेख एवं अर्जी नियम पढ़ें ➔</a>
+    </div>
+
+    <section id="about" class="card">
+        <h2>🙏 40-Year Legacy of Shri Balaji Darbar Pilibhit</h2>
+        
+        <div class="profile-container">
+            <div class="profile-card">
+                <img src="guru.jpg" alt="संस्थापक पूज्य गुरुदेव धर्मगुरु श्री श्री 108 अखिलेश वशिष्ठ जी महाराज" onerror="this.src='img5.jpg'">
+                <h3>संस्थापक पूज्य गुरुदेव</h3>
+                <p><strong>धर्मगुरु श्री श्री 108 अखिलेश वशिष्ठ जी महाराज</strong><br>संस्थापक: श्री बालाजी दरबार, पीलीभीत</p>
+            </div>
+            <div class="profile-card">
+                <img src="img1.jpg" alt="पीठधीश पंडित अमोल वशिष्ठ जी">
+                <h3>वर्तमान पीठधीश</h3>
+                <p><strong>ज्योतिषाचार्य पंडित अमोल वशिष्ठ जी</strong><br>मुख्य पीठधीश एवं कथा व्यास</p>
+            </div>
+        </div>
+
+        <p>श्री बालाजी दरबार पीलीभीत पिछले 40 वर्षों से पूज्य गुरुदेव श्री अखिलेश वशिष्ठ जी महाराज द्वारा स्थापित वैदिक परंपराओं एवं संकट निवारण का पावन केंद्र रहा है। श्री मेहंदीपुर बालाजी महाराज, श्री प्रेतराज सरकार एवं श्री भैरव बाबा की असीम अनुकंपा से प्रत्येक मंगलवार 150+ से अधिक भक्तों को संकटों, ऊपरी बाधाओं और गृह-क्लेश से मुक्ति प्रदान की जाती है।</p>
+    </section>
+
+    <section id="astrology" class="card">
+        <h2>🔮 वैदिक ज्योतिष, कुंडली एवं आधुनिक वास्तु परामर्श</h2>
+        <p>ज्योतिषाचार्य पंडित अमोल वशिष्ठ द्वारा आपकी जन्मपत्री का सटीक विश्लेषण व वैज्ञानिक वास्तु समाधान।</p>
+    </section>
+
+    <section id="gallery" class="card">
+        <h2>📸 भक्तों के अनुभव एवं दरबार फोटो गैलरी</h2>
+        <div class="gallery-grid">
+            <img src="img1.jpg" alt="पंडित अमोल वशिष्ठ जी व्यासपीठ दर्शन">
+            <img src="img2.jpg" alt="वार्षिक दिसंबर महोत्सव एवं शोभायात्रा">
+            <img src="img3.jpg" alt="संगीतमय बालाजी दरबार झूमते भक्त">
+            <img src="img4.jpg" alt="श्री हनुमान जी महाराज सिंदूरी स्वरूप दर्शन">
+            <img src="img5.jpg" alt="परम पूज्य गुरुदेव चित्रपट दर्शन">
+            <img src="img6.jpg" alt="कथा व्यासपीठ पूजन एवं पाठ">
+        </div>
+    </section>
+
+    <section id="tariff" class="card">
+        <h2>📜 संपूर्ण अनुष्ठान एवं दरबार दक्षिणा सूची</h2>
+
+        <h3>1. बालाजी दरबार लगवाने के लिए संपर्क करें:</h3>
+        <table>
+            <tr><th>क्र.</th><th>सेवा / अनुष्ठान नाम</th><th>दक्षिणा (₹)</th></tr>
+            <tr><td>1</td><td>साधारण हवन की दक्षिणा</td><td>₹ 11,000</td></tr>
+            <tr><td>2</td><td>संकट निवारण हवन की दक्षिणा</td><td>₹ 21,000</td></tr>
+            <tr><td>3</td><td>संगीतमय बालाजी दरबार की दक्षिणा</td><td>₹ 35,000</td></tr>
+        </table>
+
+        <h3>2. माता के जागरण के लिए संपर्क करें:</h3>
+        <table>
+            <tr><th>क्र.</th><th>सेवा / अनुष्ठान नाम</th><th>दक्षिणा (₹)</th></tr>
+            <tr><td>1</td><td>माता की चौकी की दक्षिणा</td><td>₹ 25,000</td></tr>
+            <tr><td>2</td><td>ज्वालामुखी ज्योति जागरण की दक्षिणा</td><td>₹ 25,000</td></tr>
+            <tr><td>3</td><td>पूर्णरात्रि जागरण झांकी दर्शन की दक्षिणा</td><td>₹ 35,000</td></tr>
+        </table>
+
+        <h3>3. सनातन धर्म के अन्य मुख्य अनुष्ठान व यज्ञ:</h3>
+        <table>
+            <tr><th>क्र.</th><th>अनुष्ठान / पूजन नाम</th><th>दक्षिणा (₹)</th></tr>
+            <tr><td>1</td><td>सत्यनारायण व्रत कथा पूजन दक्षिणा</td><td>₹ 2,100</td></tr>
+            <tr><td>2</td><td>लघुरुद्राभिषेक / 121 पाठ की दक्षिणा</td><td>₹ 5,100</td></tr>
+            <tr><td>3</td><td>महारुद्राभिषेक / 1331 पाठ की दक्षिणा</td><td>₹ 11,000</td></tr>
+            <tr><td>4</td><td>अतिरुद्राभिषेक / 14641 पाठ की दक्षिणा</td><td>₹ 31,000</td></tr>
+            <tr><td>5</td><td>नवग्रहशांति हवन/पूजन की दक्षिणा</td><td>₹ 11,000</td></tr>
+            <tr><td>6</td><td>सुंदरकांड पाठ संगीत के साथ की दक्षिणा</td><td>₹ 11,000</td></tr>
+            <tr><td>7</td><td>रामचरितमानस का अखंड पाठ की दक्षिणा</td><td>₹ 11,000</td></tr>
+            <tr><td>8</td><td>दुर्गा सप्तशती पाठ की दक्षिणा</td><td>₹ 21,000</td></tr>
+            <tr><td>9</td><td>नवचंडी, शतचंडी, सहस्रचंडी नवरात्र हवन पूजन की दक्षिणा</td><td>₹ 51,000</td></tr>
+            <tr><td>10</td><td>श्राद्ध, तर्पण, पिंडदान कराने की दक्षिणा</td><td>₹ 11,000</td></tr>
+            <tr><td>11</td><td>महामृत्युंजय जाप अनुष्ठान हवन की दक्षिणा</td><td>₹ 1,25,000</td></tr>
+            <tr><td>12</td><td>मूर्तिप्राण प्रतिष्ठा की दक्षिणा</td><td>₹ 21,000</td></tr>
+            <tr><td>13</td><td>वास्तुशांति हवन/पूजन/जाप की दक्षिणा</td><td>₹ 31,000</td></tr>
+            <tr><td>14</td><td>गृहप्रवेश पूजन/हवन/जाप की दक्षिणा</td><td>₹ 31,000</td></tr>
+            <tr><td>15</td><td>हस्तलिखित यंत्र सिद्ध प्रामाणिकता के साथ की दक्षिणा</td><td>₹ 5,100</td></tr>
+            <tr><td>16</td><td>हस्तलिखित छोटी जन्म कुंडली की दक्षिणा</td><td>₹ 5,100</td></tr>
+            <tr><td>17</td><td>हस्तलिखित विस्तृत संपूर्ण जन्म कुंडली की दक्षिणा</td><td>₹ 11,000</td></tr>
+            <tr><td>18</td><td>सिद्ध नजर के डोरे, ताबीज की दक्षिणा</td><td>₹ 1,100</td></tr>
+            <tr><td>19</td><td>विस्तृत यज्ञ (विष्णु यज्ञ, शिव यज्ञ, रुद्र यज्ञ, ब्रह्म यज्ञ) की दक्षिणा</td><td>₹ 31,000</td></tr>
+            <tr><td>20</td><td>सिद्ध हनुमानजी का उतरा हुआ चोला की दक्षिणा</td><td>₹ 2,100</td></tr>
+        </table>
+    </section>
+
+    <section id="rules" class="card">
+        <h2>🚩 श्री बालाजी दरबार नियम व अर्जी</h2>
+        <ul>
+            <li><strong>अर्जी दक्षिणा:</strong> ₹ 101</li>
+            <li><strong>41 दिन के सात्विक नियम:</strong> अर्जी स्वीकार होने पर यजमान को 41 दिनों तक विशेष सात्विक नियम, ब्रह्मचर्य, नशा-त्याग एवं नियमपूर्वक संयम का पालन करना अनिवार्य है।</li>
+        </ul>
+
+        <div class="qr-card">
+            <h3>💳 ऑनलाइन अर्जी / दक्षिणा हेतु QR Code</h3>
+            <img src="qr-code.png" alt="श्री बालाजी दरबार QR Code" style="max-width: 200px; border-radius: 8px; border: 2px solid var(--primary-saffron);" onerror="this.src='https://via.placeholder.com/200?text=Balaji+Darbar+QR';">
+            <p><strong>UPI ID:</strong> 8923955395@upi / 8923955395@ybl</p>
+        </div>
+    </section>
+
+    <section id="booking" class="card">
+        <h2>📱 ऑनलाइन अपॉइंटमेंट एवं बुकिंग फ़ॉर्म</h2>
+        <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
+            <div class="form-group">
+                <label>आपका नाम *</label>
+                <input type="text" id="name" required placeholder="अपना पूरा नाम लिखें">
+            </div>
+            <div class="form-group">
+                <label>शहर / स्थान *</label>
+                <input type="text" id="city" required placeholder="अपने शहर का नाम लिखें">
+            </div>
+            <div class="form-group">
+                <label>मोबाइल नंबर *</label>
+                <input type="tel" id="phone" required placeholder="10 अंकों का मोबाइल नंबर">
+            </div>
+            <div class="form-group">
+                <label>सेवा / अनुष्ठान का चयन करें *</label>
+                <select id="service" required>
+                    <option value="">-- चुनें --</option>
+                    <option value="बालाजी दरबार लगवाना">बालाजी दरबार लगवाना</option>
+                    <option value="माता का जागरण / चौकी">माता का जागरण / चौकी</option>
+                    <option value="वैदिक अनुष्ठान / पूजन">वैदिक अनुष्ठान / पूजन</option>
+                    <option value="ज्योतिष व वास्तु परामर्श">ज्योतिष व वास्तु परामर्श</option>
+                    <option value="दरबार अर्जी ₹101">दरबार अर्जी (₹101)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>अपनी समस्या / संदेश</label>
+                <textarea id="problem" rows="3" placeholder="संक्षिप्त विवरण लिखें
